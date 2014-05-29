@@ -1,0 +1,26 @@
+
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+
+  "Description" : "BAREBONES TEMPLATE",
+
+  "Parameters" : {
+
+    // ADD PARAMETERS HERE
+  },
+
+  "Mappings" : {
+    
+    // ADD MAPPINGS HERE
+  },
+
+  "Resources" : {
+
+    // ADD RESOURCES HERE
+  },
+
+  "Outputs" : {
+
+    // ADD OUTPUTS HERE
+  }
+}
