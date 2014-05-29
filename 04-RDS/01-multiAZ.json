@@ -50,6 +50,7 @@
       "Type" : "AWS::EC2::Subnet",
       "Properties" : {
         "VpcId" : { "Ref" : "VPC" },
+        "AvailabilityZone": "eu-west-1a",
         "CidrBlock" : { "Fn::FindInMap" : [ "SubnetConfig", "PublicA", "CIDR" ]},
         "Tags" : [
           { "Key" : "Application", "Value" : { "Ref" : "AWS::StackId" } },
@@ -62,6 +63,7 @@
       "Type" : "AWS::EC2::Subnet",
       "Properties" : {
         "VpcId" : { "Ref" : "VPC" },
+        "AvailabilityZone": "eu-west-1b",
         "CidrBlock" : { "Fn::FindInMap" : [ "SubnetConfig", "PublicB", "CIDR" ]},
         "Tags" : [
           { "Key" : "Application", "Value" : { "Ref" : "AWS::StackId" } },
@@ -129,6 +131,7 @@
       "Type" : "AWS::EC2::Subnet",
       "Properties" : {
         "VpcId" : { "Ref" : "VPC" },
+        "AvailabilityZone": "eu-west-1a",
         "CidrBlock" : { "Fn::FindInMap" : [ "SubnetConfig", "PrivateA", "CIDR" ]},
         "Tags" : [
           { "Key" : "Application", "Value" : { "Ref" : "AWS::StackId" } },
@@ -141,6 +144,7 @@
       "Type" : "AWS::EC2::Subnet",
       "Properties" : {
         "VpcId" : { "Ref" : "VPC" },
+        "AvailabilityZone": "eu-west-1b",
         "CidrBlock" : { "Fn::FindInMap" : [ "SubnetConfig", "PrivateB", "CIDR" ]},
         "Tags" : [
           { "Key" : "Application", "Value" : { "Ref" : "AWS::StackId" } },
@@ -244,6 +248,15 @@
         "GroupDescription" : "Enable access to the Bastion host",
         "VpcId" : { "Ref" : "VPC" },
         "SecurityGroupIngress" : [ { "IpProtocol" : "tcp", "FromPort" : "22",  "ToPort" : "22",  "CidrIp" : "0.0.0.0/0"} ]        
+      }
+    },
+    
+    "DBSecurityGroup" : {
+      "Type" : "AWS::EC2::SecurityGroup",
+      "Properties" : {
+        "GroupDescription" : "Enable access to the Bastion host",
+        "VpcId" : { "Ref" : "VPC" },
+        "SecurityGroupIngress" : [ { "IpProtocol" : "tcp", "FromPort" : "3306",  "ToPort" : "3306",  "CidrIp" : "0.0.0.0/0"} ]        
       }
     }
   },
