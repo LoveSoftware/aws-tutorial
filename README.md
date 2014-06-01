@@ -91,6 +91,4 @@
 
 7. On the VM Terminal, add the key to your ssh-agent
  - ssh-add /home/awsuser/host/keyname.pem
- 
 
-5. 
